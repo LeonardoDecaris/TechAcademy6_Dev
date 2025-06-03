@@ -86,16 +86,6 @@ export const updateUser = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { name, password } = req.body;
 
-    if (!req.body.user || !req.body.user.id) {
-      return res.status(401).json({ message: "User not authenticated" });
-    }
-    // // Verify if the authenticated user ID matches the ID in the request parameters
-    // if (req.body.user.id !== id) {
-    //   return res
-    //     .status(403)
-    //     .json({ message: "You can only update your own user" });
-    // }
-
     const user = await UserModel.findByPk(id);
     if (!user) {
       console.log("User not found:", id);
