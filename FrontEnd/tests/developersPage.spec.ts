@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Testes DevelopersPage', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('http://localhost:5173/home');
+        await page.goto('https://harmonicsound.com.br/home');
         await page.locator('#about').click();
-        await expect(page).toHaveURL('http://localhost:5173/about');
+        await expect(page).toHaveURL('https://harmonicsound.com.br/about');
     });
 
     test('Developer 1', async ({ page }) => {

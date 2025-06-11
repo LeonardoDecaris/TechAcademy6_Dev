@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Cadastro com confirmacao de senha diferente', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -21,7 +21,7 @@ test('Cadastro com confirmacao de senha diferente', async ({ page }) => {
 });
 
 test('Cadastro com senha sem caractere especial', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -41,7 +41,7 @@ test('Cadastro com senha sem caractere especial', async ({ page }) => {
 });
 
 test('Cadastro com senha sem numeros', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -61,7 +61,7 @@ test('Cadastro com senha sem numeros', async ({ page }) => {
 });
 
 test('Cadastro com senha sem letra maiuscula', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -81,7 +81,7 @@ test('Cadastro com senha sem letra maiuscula', async ({ page }) => {
 });
 
 test('Cadastro com senha sem 8 caracteres', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -101,7 +101,7 @@ test('Cadastro com senha sem 8 caracteres', async ({ page }) => {
 });
 
 test('Cadastro com senha fraca', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -121,7 +121,7 @@ test('Cadastro com senha fraca', async ({ page }) => {
 });
 
 test('Cadastro com senha nula', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -141,7 +141,7 @@ test('Cadastro com senha nula', async ({ page }) => {
 });
 
 test('Cadastro com confirmacao de senha nula', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -161,7 +161,7 @@ test('Cadastro com confirmacao de senha nula', async ({ page }) => {
 });
 
 test('Cadastro com email sem .com', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -181,7 +181,7 @@ test('Cadastro com email sem .com', async ({ page }) => {
 });
 
 test('Cadastro com email faltando @', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -202,7 +202,7 @@ test('Cadastro com email faltando @', async ({ page }) => {
 });
 
 test('Cadastro com email sem @ e sem .com', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -223,7 +223,7 @@ test('Cadastro com email sem @ e sem .com', async ({ page }) => {
 });
 
 test('Cadastro com email nulo', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -243,7 +243,7 @@ test('Cadastro com email nulo', async ({ page }) => {
 });
 
 test('Cadastro com usuario nulo', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -263,7 +263,7 @@ test('Cadastro com usuario nulo', async ({ page }) => {
 });
 
 test('Cadastro com cpf nulo', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -283,7 +283,7 @@ test('Cadastro com cpf nulo', async ({ page }) => {
 });
 
 test('Cadastro com cpf invalido', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -303,7 +303,7 @@ test('Cadastro com cpf invalido', async ({ page }) => {
 });
 
 test('Cadastro com cpf curto', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
+    await page.goto('https://harmonicsound.com.br/login');
     const signUp = page.getByRole('button', { name: 'Sign up' });
     await signUp.scrollIntoViewIfNeeded();
     await signUp.click();
@@ -322,26 +322,41 @@ test('Cadastro com cpf curto', async ({ page }) => {
     expect(await errorSpan.isVisible()).toBeTruthy(); 
 });
 
-test('Cadastro com sucesso', async ({ page }) => {
-    await page.goto('http://localhost:5173/login');
-    const signUp = page.getByRole('button', { name: 'Sign up' });
-    await signUp.scrollIntoViewIfNeeded();
-    await signUp.click();
+test.describe.serial('Cadastro com sucesso', () => {
 
-    await page.locator('#name').fill('Playwright Teste');
-    await page.locator('#cpf').fill('57962204036');
-    await page.locator('#email').fill('playwriteteste1@gmail.com');
-    await page.locator('#password').fill('#$%&*123456aaA');
-    await page.locator('#confirmPassword').fill('#$%&*123456aaA');
 
-    const loginButton = page.getByRole('button', { name: 'Register' });
-    await loginButton.scrollIntoViewIfNeeded();
-    await loginButton.click();
+    test('Cadastro com sucesso', async ({ page }) => {
+        await page.goto('https://harmonicsound.com.br/login');
+        const signUp = page.getByRole('button', { name: 'Sign up' });
+        await signUp.scrollIntoViewIfNeeded();
+        await signUp.click();
 
-    await page.goto('http://localhost:5173/login');
+        await page.locator('#name').fill('TESTE');
+        await page.locator('#cpf').fill('57962204036');
+        await page.locator('#email').fill('TESTE@gmail.com');
+        await page.locator('#password').fill('#$%&*123456aaA');
+        await page.locator('#confirmPassword').fill('#$%&*123456aaA');
 
-    await page.waitForTimeout(500);
-    const title = await page.getByText("LOGIN");
-    expect(title).toBeTruthy();
+        const loginButton = page.getByRole('button', { name: 'Register' });
+        await loginButton.scrollIntoViewIfNeeded();
+        await loginButton.click();
+
+        await page.goto('https://harmonicsound.com.br/login');
+
+        await page.waitForTimeout(500);
+        const title = await page.getByText("LOGIN");
+        expect(title).toBeTruthy();
+    });
+
+    test.afterEach(async ({ page }) => {
+        await page.goto('https://harmonicsound.com.br/adminAuthor');
+        const authorExists = await page.locator('button#TESTE:has-text("Delete")').count();
+        if (authorExists > 0) {
+            await page.click('button#TESTE:has-text("Delete")');
+            await page.click('button:has-text("Confirm")');
+        }
+    });
+
 });
+
 
