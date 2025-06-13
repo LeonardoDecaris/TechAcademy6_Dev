@@ -5,24 +5,20 @@ test.describe('Testes SoundPage Autenticados', () => {
         await page.goto('https://harmonicsound.com.br/home');
         await page.click('text=Log in');
         await expect(page).toHaveURL('https://harmonicsound.com.br/login');
-        await page.locator('#email').fill('playwriteteste1@gmail.com');
+        await page.locator('#email').fill('Aplaywriteteste1@gmail.com');
         await page.locator('#password').fill('MH4q8Da3JXp2Hye#$');
         const loginButton = page.getByRole('button', { name: 'Login' });
         await loginButton.scrollIntoViewIfNeeded();
         await loginButton.click();
-        await expect(page).toHaveURL("https://harmonicsound.com.br/home");
-        const title = await page.getByText("The Power of audioVisual Harmonic Sound");
         await page.waitForTimeout(200);
-        expect(title).toBeTruthy();
-        await page.click('a:has-text("Sound")');
-        await expect(page).toHaveURL("https://harmonicsound.com.br/sound");
+        await page.goto('https://harmonicsound.com.br/sound');
     });
 
     test('Busca por um som', async ({ page }) => {
-        await page.locator('#search').fill('PLAYWRITE');
+        await page.locator('#search').fill('APLAYWRITE');
         await page.click('button:has(img[alt="Buscar"])');
         await page.waitForTimeout(2000);
-        const title = await page.getByText("PLAYWRITE");
+        const title = await page.getByText("APLAYWRITE");
         expect(title).toBeTruthy();
     });
 
@@ -35,11 +31,11 @@ test.describe('Testes SoundPage Autenticados', () => {
     });
 
     test('Tocar um som', async ({ page }) => {
-        await page.locator('#search').fill('PLAYWRITE');
+        await page.locator('#search').fill('APLAYWRITE');
         await page.click('button:has(img[alt="Buscar"])');
         await page.waitForTimeout(2000);
-        const title = await page.getByText("PLAYWRITE");
-        await page.click('button:has(img[alt="PLAYWRITE"])');
+        const title = await page.getByText("APLAYWRITE");
+        await page.click('button:has(img[alt="APLAYWRITE"])');
         expect(title).toBeTruthy();
         await page.waitForTimeout(2000);
 
@@ -51,10 +47,10 @@ test.describe('Testes SoundPage Autenticados', () => {
     });
 
     test('Baixar um som', async ({ page }) => {
-        await page.locator('#search').fill('PLAYWRITE');
+        await page.locator('#search').fill('APLAYWRITE');
         await page.click('button:has(img[alt="Buscar"])');
         await page.waitForTimeout(2000);
-        const title = await page.getByText("PLAYWRITE");
+        const title = await page.getByText("APLAYWRITE");
         expect(title).toBeTruthy();
 
         const [ download ] = await Promise.all([

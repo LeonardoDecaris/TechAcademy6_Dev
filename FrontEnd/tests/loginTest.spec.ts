@@ -1,27 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test.beforeEach(async ({ page }) => {
-//     await page.route('**/api/login', async (route) => {
-//         const request = route.request();
-//         const postData = request.postDataJSON();
-
-//         // Mockar a resposta com base nos dados enviados
-//         if (postData.email === 'playwriteteste1@gmail.com' && postData.password === 'MH4q8Da3JXp2Hye#$') {
-//             route.fulfill({
-//                 status: 200,
-//                 contentType: 'application/json',
-//                 body: JSON.stringify({ token: 'mock-token' }),
-//             });
-//         } else {
-//             route.fulfill({
-//                 status: 401,
-//                 contentType: 'application/json',
-//                 body: JSON.stringify({ message: 'Error: Invalid email or password.' }),
-//             });
-//         }
-//     });
-// });
-
 test('Login com usuario correto e senha incorreta', async ({ page }) => {
     await page.goto('https://harmonicsound.com.br/login');
     await page.locator('#email').fill('playwriteteste1@gmail.com');

@@ -332,7 +332,7 @@ test.describe.serial('Cadastro com sucesso', () => {
         await signUp.click();
 
         await page.locator('#name').fill('TESTE');
-        await page.locator('#cpf').fill('57962204036');
+        await page.locator('#cpf').fill('71581497067');
         await page.locator('#email').fill('TESTE@gmail.com');
         await page.locator('#password').fill('#$%&*123456aaA');
         await page.locator('#confirmPassword').fill('#$%&*123456aaA');
@@ -341,20 +341,38 @@ test.describe.serial('Cadastro com sucesso', () => {
         await loginButton.scrollIntoViewIfNeeded();
         await loginButton.click();
 
-        await page.goto('https://harmonicsound.com.br/login');
+        await expect(page).toHaveURL("https://harmonicsound.com.br/login");
 
         await page.waitForTimeout(500);
-        const title = await page.getByText("LOGIN");
+        const title = await page.getByText("Log in");
         expect(title).toBeTruthy();
     });
 
     test.afterEach(async ({ page }) => {
-        await page.goto('https://harmonicsound.com.br/adminAuthor');
-        const authorExists = await page.locator('button#TESTE:has-text("Delete")').count();
-        if (authorExists > 0) {
-            await page.click('button#TESTE:has-text("Delete")');
-            await page.click('button:has-text("Confirm")');
-        }
+        await page.goto('https://harmonicsound.com.br/home');
+        await page.click('text=Log in');
+        await expect(page).toHaveURL('https://harmonicsound.com.br/login');
+        await page.locator('#email').fill('TESTE@gmail.com');
+        await page.locator('#password').fill('#$%&*123456aaA');
+        const loginButton = page.getByRole('button', { name: 'Login' });
+        await loginButton.scrollIntoViewIfNeeded();
+        await loginButton.click();
+        await expect(page).toHaveURL("https://harmonicsound.com.br/home");
+        const title = await page.getByText("The Power of audioVisual Harmonic Sound");
+        await page.waitForTimeout(200);
+        expect(title).toBeTruthy();
+
+        await page.goto('https://harmonicsound.com.br/userSettings');
+        const deleteButton = page.getByRole('button', { name: 'Delete account' });
+        await deleteButton.scrollIntoViewIfNeeded();
+        await deleteButton.click();
+
+        await page.waitForTimeout(200);
+
+        const confirmButton = page.getByRole('button', { name: 'Confirm' });
+        await confirmButton.scrollIntoViewIfNeeded();
+        await confirmButton.click();
+
     });
 
 });

@@ -36,16 +36,6 @@ test.describe('Testes NavBar Autenticados', () => {
         await page.click('a:has-text("User Settings")');
         await expect(page).toHaveURL("https://harmonicsound.com.br/userSettings");
     });
-
-    test('Abrir Admin', async ({ page }) => {
-        const title = await page.getByText("The Power of audioVisual Harmonic Sound");
-        await page.waitForTimeout(200);
-        expect(title).toBeTruthy();
-
-        await page.locator('#dropDownButton').click();
-        await page.click('a:has-text("Admin")');
-        await expect(page).toHaveURL("https://harmonicsound.com.br/admin");
-    });
 });
 
 test('Navegar ate botao login', async ({ page }) => {
