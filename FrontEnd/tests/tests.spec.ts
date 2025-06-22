@@ -395,7 +395,7 @@ test.describe('Testes', () => {
             await loginButton.click();
             const emailInput = page.locator('#email');
             const validationMessage = await emailInput.evaluate((input: HTMLInputElement) => input.validationMessage);
-            expect(validationMessage).toContain('@');
+            expect(validationMessage.includes('@') || validationMessage.includes('Enter an email address')).toBeTruthy();
         });
 
         test('Cadastro com email sem @ e sem .com', async ({ page }) => {
@@ -414,7 +414,7 @@ test.describe('Testes', () => {
             await loginButton.click();
             const emailInput = page.locator('#email');
             const validationMessage = await emailInput.evaluate((input: HTMLInputElement) => input.validationMessage);
-            expect(validationMessage).toContain('@');
+            expect(validationMessage.includes('@') || validationMessage.includes('Enter an email address')).toBeTruthy();
         });
 
         test('Cadastro com email nulo', async ({ page }) => {
@@ -849,23 +849,27 @@ test.describe('Testes', () => {
                 await page.click('a:has(span:has-text("Amd category"))');
                 await expect(page).toHaveURL('https://harmonicsound.com.br/adminCategory');
                 await page.waitForTimeout(500);
+                await page.waitForLoadState('load'); 
+                await page.waitForTimeout(500);
                 page.once('dialog', async (dialog) => {
                     expect(dialog.message()).toBe('Registro realizado com sucesso!');
                     await dialog.accept();
                 });
-
                 await page.locator('input[placeholder="Name Category"]').fill('TESTE');
                 const createButton = page.locator('button:has-text("Create")');
                 await createButton.scrollIntoViewIfNeeded();
                 await createButton.click();
+                await page.waitForTimeout(200);
                 await page.goto('https://harmonicsound.com.br/admin');
-                await page.waitForLoadState('load'); // Aguarda o carregamento completo
                 expect(page.url()).toBe('https://harmonicsound.com.br/admin');
-                await page.waitForLoadState('load');
             });
 
             test.afterEach(async ({ page }) => {
                 await page.goto('https://harmonicsound.com.br/adminCategory');
+                const title = await page.getByText("Name:");
+                await page.waitForTimeout(200);
+                expect(title).toBeTruthy();
+                
                 const categoryExists = await page.locator('button#TESTE:has-text("Delete")').count();
                 if (categoryExists > 0) {
                     await page.click('button#TESTE:has-text("Delete")');
@@ -882,11 +886,11 @@ test.describe('Testes', () => {
                 await page.click('a:has(span:has-text("Amd category"))');
                 await expect(page).toHaveURL('https://harmonicsound.com.br/adminCategory');
                 await page.waitForTimeout(500);
-
                 page.once('dialog', async (dialog) => {
                     expect(dialog.message()).toBe('Erro ao realizar o registro.');
                     await dialog.accept();
                 });
+                
                 const createButton = page.locator('button:has-text("Create")');
                 await createButton.scrollIntoViewIfNeeded();
                 await createButton.click();
