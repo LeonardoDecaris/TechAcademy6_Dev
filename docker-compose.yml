@@ -4,8 +4,6 @@ services:
     container_name: mysql-container
     env_file:
       - ./.env
-    ports:
-      - "3003:3306"
     volumes:
       - db_data:/var/lib/mysql
     networks:
